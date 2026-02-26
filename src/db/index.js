@@ -18,3 +18,13 @@ const connectDb = async () => {
 };
 
 export default connectDb;
+connectDb()
+.then(() => {
+  app.listen(process.env.PORT || 8000, () =>{
+    console.log(`Server is running on the port: ${process.env.PORT || 8000}`);
+  })
+})
+
+.catch((err) =>{
+  console.log("Mongo db connection failed " , err);
+})
